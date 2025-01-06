@@ -57,28 +57,6 @@ void dfs(int row,int col, vector<vector<bool>>&vis,vector<vector<int>>& heights)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return result;
         
     }
