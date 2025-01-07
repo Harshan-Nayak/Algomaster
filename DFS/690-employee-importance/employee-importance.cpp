@@ -14,7 +14,7 @@ public:
 
     // DFS helper function
     int dfs(int id) {
-        Employee* employee = employeeMap[id];
+        auto employee = employeeMap[id];
         int totalImportance = employee->importance;
 
         for (int subId : employee->subordinates) {
@@ -26,7 +26,7 @@ public:
 
     int getImportance(vector<Employee*> employees, int id) {
         // Map employees by ID for quick access
-        for (Employee* emp : employees) {
+        for (auto emp : employees) {
             employeeMap[emp->id] = emp;
         }
 
