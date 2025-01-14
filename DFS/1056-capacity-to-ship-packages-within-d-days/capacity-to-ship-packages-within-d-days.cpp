@@ -1,31 +1,39 @@
 class Solution {
 public:
-    bool isFeasible(vector<int>& weights, int days, int mid) {
-        int ctDays = 1, sum = 0; // Start with 1 day
-        for (int wt : weights) {
-            sum += wt;
-            if (sum > mid) { // If the sum exceeds mid, we need a new day
-                ctDays++;
-                sum = wt; // Reset sum to the current weight
-            }
+
+
+bool isFeasible(vector<int>& weights, int days,int mid){
+    int ctDays = 1;
+    int sum =0;
+    for(auto wt:weights){
+        sum += wt;
+        if(sum>mid){
+            ctDays++;
+            sum=wt;
         }
-        return ctDays <= days; // Check if feasible within given days
     }
+ return ctDays <= days; 
+
+}
+
 
     int shipWithinDays(vector<int>& weights, int days) {
-        int low = *max_element(weights.begin(), weights.end()); // Minimum capacity
-        int high = accumulate(weights.begin(), weights.end(), 0); // Maximum capacity
+      int low = *max_element(weights.begin(), weights.end());
+
+        int high = accumulate(weights.begin(),weights.end(),0);
         int result = high;
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (isFeasible(weights, days, mid)) {
-                result = mid; // Update result if feasible
-                high = mid - 1; // Try for a smaller capacity
-            } else {
-                low = mid + 1; // Increase capacity
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(isFeasible(weights,days,mid)){
+                result = mid;
+                high = mid-1;
+            }else{
+                low = mid+1;
             }
         }
+
         return result;
+        
     }
 };
