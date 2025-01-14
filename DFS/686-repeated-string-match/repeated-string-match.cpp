@@ -6,7 +6,7 @@ public:
         int repetitions = bLen / aLen; // Minimum repetitions needed to cover 'b'
 
         string repeatedA = a;
-        for (int i = 1; i <= repetitions + 2; ++i) {
+        for (int i = 1; i <= repetitions +2; ++i) {
             if (repeatedA.find(b) != string::npos) {
                 return i;
             }
