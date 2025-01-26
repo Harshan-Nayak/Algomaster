@@ -12,7 +12,7 @@ public:
                 high = INT_MIN; // Reset high since we found a new low
             }
             // Update the highest price if the current price is higher
-            else if (prices[i] > high) {
+            else if (prices[i] > low) {
                 high = prices[i];
                 // Calculate the profit if we sell on the current day
                 if (high - low > profit) {
